@@ -1,139 +1,177 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Noel David | Data Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <!-- Custom CSS -->
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
     }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      padding: 30px;
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #084298);
+      color: white;
+      padding: 80px 20px;
     }
-    h1, h2, h3 {
-      color: #2c3e50;
-    }
-    p {
-      color: #444;
-      line-height: 1.6;
-    }
-    .tag {
-      display: inline-block;
-      background: #e8f0fe;
-      color: #1a73e8;
-      padding: 5px 10px;
-      border-radius: 15px;
-      margin: 5px 5px 5px 0;
-      font-size: 14px;
-    }
-    .project {
-      border-left: 5px solid #1a73e8;
-      padding: 15px;
-      margin-bottom: 20px;
-      background: #fafafa;
-      border-radius: 8px;
-    }
-    a {
-      color: #1a73e8;
-      text-decoration: none;
+    .hero h1 {
+      font-size: 3rem;
       font-weight: bold;
     }
-    .footer {
-      text-align: center;
-      color: #777;
-      margin-top: 40px;
+    .section {
+      padding: 70px 0;
+    }
+    .badge-skill {
+      background-color: #e7f1ff;
+      color: #0d6efd;
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+    .project-card {
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    footer {
+      background-color: #212529;
+      color: #adb5bd;
+      padding: 30px;
     }
   </style>
 </head>
 
 <body>
-<div class="container">
 
-  <!-- HERO -->
-  <h1>Noel David</h1>
-  <p><b>Data Engineer / Analytics Engineer</b></p>
-  <p>Building scalable data pipelines, analytics-ready models, and business insights.</p>
-
-  <!-- TECH STACK -->
-  <h2>🛠 Tech Stack</h2>
-  <div>
-    <span class="tag">Python</span>
-    <span class="tag">SQL</span>
-    <span class="tag">Snowflake</span>
-    <span class="tag">BigQuery</span>
-    <span class="tag">SSIS</span>
-    <span class="tag">ETL / ELT</span>
-    <span class="tag">dbt</span>
-    <span class="tag">Power BI</span>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Noel David</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </div>
+</nav>
 
-  <!-- ABOUT -->
-  <h2>👋 About Me</h2>
-  <p>
-    I am a data professional with strong experience in data warehousing,
-    ETL pipelines, and analytics engineering.
-    I focus on writing clean SQL, building reliable pipelines,
-    and delivering data that stakeholders can trust.
-  </p>
-
-  <!-- PROJECTS -->
-  <h2>📂 Featured Projects</h2>
-
-  <div class="project">
-    <h3>🚀 Snowflake SCD Type 2 Pipeline</h3>
-    <p>
-      Built an incremental Slowly Changing Dimension pipeline using
-      Snowflake Streams and Tasks to track historical changes.
+<!-- HERO -->
+<section class="hero text-center">
+  <div class="container">
+    <h1>Noel David</h1>
+    <p class="lead mt-3">
+      Data Engineer / Analytics Engineer<br>
+      Building scalable data pipelines & analytics-ready models
     </p>
-    <p>
-      <b>Tech:</b> Snowflake, SQL, Python<br>
-      <b>Concepts:</b> SCD Type 2, CDC, Incremental Loads
-    </p>
-    <a href="https://davidnho.github.io/projects/snowflake-scd-pipeline.html">View Project →</a>
-         
+    <a href="#projects" class="btn btn-light btn-lg mt-4">View Projects</a>
   </div>
+</section>
 
-  <div class="project">
-    <h3>📊 Analytics Engineering with dbt + BigQuery</h3>
-    <p>
-      Designed analytics models using dbt to transform raw data into
-      analytics-ready marts following best practices.
-    </p>
-    <p>
-      <b>Tech:</b> dbt, BigQuery, SQL<br>
-      <b>Concepts:</b> Star Schema, Testing, Documentation
-    </p>
-    <a href="https://github.com/yourusername/dbt-analytics-project">View Project →</a>
-  </div>
-
-  <div class="project">
-    <h3>⚙ End-to-End ETL Pipeline</h3>
-    <p>
-      Built a full ETL pipeline from source data ingestion to BI reporting.
-    </p>
-    <p>
-      <b>Tech:</b> Python, SQL, SSIS, Power BI
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="text-center mb-4">About Me</h2>
+    <p class="text-center">
+      I am a Data Engineer / Analytics Engineer with strong experience in SQL,
+      Snowflake, ETL/ELT pipelines, and analytics engineering.
+      I focus on building reliable data models that power business decisions.
     </p>
   </div>
+</section>
 
-  <!-- CONTACT -->
-  <h2>📞 Contact</h2>
-  <p>
-    📧 Email: your@email.com <br>
-    🔗 LinkedIn: <a href="https://www.linkedin.com/in/noelsdavid/">linkedin.com/in/noelsdavid</a><br>
-    💻 GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a>
-  </p>
-
-  <div class="footer">
-    © 2026 Noel David
+<!-- SKILLS -->
+<section id="skills" class="section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Tech Stack</h2>
+    <div class="text-center">
+      <span class="badge-skill">Python</span>
+      <span class="badge-skill">SQL</span>
+      <span class="badge-skill">Snowflake</span>
+      <span class="badge-skill">BigQuery</span>
+      <span class="badge-skill">SSIS</span>
+      <span class="badge-skill">ETL / ELT</span>
+      <span class="badge-skill">dbt</span>
+      <span class="badge-skill">Power BI</span>
+    </div>
   </div>
+</section>
 
-</div>
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="container">
+    <h2 class="text-center mb-5">Featured Projects</h2>
+
+    <div class="row g-4">
+
+      <!-- Project 1 -->
+      <div class="col-md-6">
+        <div class="card project-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Snowflake SCD Type 2 Pipeline</h5>
+            <p class="card-text">
+              Built an incremental SCD Type 2 pipeline using Snowflake Streams
+              and MERGE logic to track historical customer changes.
+            </p>
+            <p><b>Tech:</b> Snowflake, SQL</p>
+            <a href="https://github.com/yourusername/snowflake-analytics-engineering"
+               class="btn btn-primary btn-sm">View GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-md-6">
+        <div class="card project-card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Analytics Engineering with dbt</h5>
+            <p class="card-text">
+              Modeled raw data into analytics-ready marts using dbt concepts,
+              testing, documentation, and star schema design.
+            </p>
+            <p><b>Tech:</b> dbt, BigQuery, SQL</p>
+            <a href="#" class="btn btn-primary btn-sm">View GitHub</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section bg-light">
+  <div class="container text-center">
+    <h2>Contact</h2>
+    <p class="mt-3">
+      📧 your@email.com <br>
+      🔗 <a href="https://www.linkedin.com/in/noelsdavid/">LinkedIn</a> |
+      💻 <a href="https://github.com/yourusername">GitHub</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  © 2026 Noel David | Data Engineer
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
