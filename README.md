@@ -27,3 +27,8 @@ The `assets/CleanDataPro.xlsm` file is the downloadable Excel VBA data-cleaning 
 
 
 The portfolio also features the Customer Analysis Dashboard on Tableau Public. The project card links to the published Tableau visualization and lists the relevant visualization and analytics skills.
+
+
+## Power BI project
+
+The portfolio includes the Coca-Cola Sales Dashboard — 2022 project card. Keep `assets/Coca_Cola_Sales_Dashboard_2022.pbix` in the `assets` folder so visitors can download the Power BI report. The card credits the Kenji Explains tutorial that inspired the project and notes that the colors and visual settings were customized.
