@@ -1,210 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>Noel David | Data Engineer, Data Analyst</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Noel S. David — Data Engineer specializing in SQL, ETL/ELT, data warehousing, Python, and analytics engineering." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>Noel S. David | Data Engineer</title>
   <style>
+    :root {
+      --bg: #0b1220;
+      --surface: #111c2e;
+      --surface-2: #16243a;
+      --text: #e8eef8;
+      --muted: #a8b6ca;
+      --accent: #58a6ff;
+      --accent-2: #7dd3fc;
+      --line: rgba(170, 194, 225, .16);
+      --max: 1120px;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 0%, rgba(42, 107, 180, .18), transparent 32rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
     }
-
-    .hero {
-
-      color: white;
-      padding: 90px 20px;
-      background: linear-gradient(to top, black, gray);
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent-2); }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(11, 18, 32, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
-
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: .02em; font-size: 1.04rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-toggle { display: none; border: 1px solid var(--line); color: var(--text); background: var(--surface); border-radius: 10px; padding: 8px 12px; }
+    .hero { padding: 104px 0 88px; }
+    .eyebrow { color: var(--accent-2); font-weight: 700; letter-spacing: .16em; text-transform: uppercase; font-size: .76rem; }
+    h1 { max-width: 850px; margin: 16px 0 18px; font-size: clamp(2.7rem, 7vw, 5.3rem); line-height: 1.04; letter-spacing: -.055em; }
+    h1 span { color: var(--accent); }
+    .hero-copy { max-width: 760px; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.22rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 999px; font-weight: 700; font-size: .92rem; border: 1px solid var(--line); transition: .2s ease; }
+    .button.primary { background: var(--accent); color: #07111f; border-color: var(--accent); }
+    .button.primary:hover { background: #83bdff; color: #07111f; transform: translateY(-2px); }
+    .button.secondary:hover { border-color: var(--accent); color: var(--accent-2); transform: translateY(-2px); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-top: 34px; color: var(--muted); font-size: .9rem; }
+    .hero-meta span::before { content: "•"; color: var(--accent); margin-right: 9px; }
+    section { padding: 76px 0; border-top: 1px solid var(--line); }
+    .section-heading { margin-bottom: 32px; }
+    .section-heading h2 { margin: 7px 0 8px; font-size: clamp(1.9rem, 4vw, 2.65rem); letter-spacing: -.04em; }
+    .section-heading p { color: var(--muted); max-width: 720px; margin: 0; }
+    .about-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 28px; align-items: start; }
+    .panel, .skill-card, .experience-card, .project-card, .education-card {
+      background: linear-gradient(145deg, rgba(22, 36, 58, .92), rgba(17, 28, 46, .92));
+      border: 1px solid var(--line); border-radius: var(--radius);
     }
-    .lead{
-      font-weight: bold;
+    .panel { padding: 28px; }
+    .panel p { color: var(--muted); margin: 0 0 14px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat { padding: 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(17, 28, 46, .75); }
+    .stat strong { display: block; font-size: 1.75rem; color: var(--accent-2); line-height: 1.2; }
+    .stat span { color: var(--muted); font-size: .85rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .skill-card { padding: 22px; }
+    .skill-card h3 { margin: 0 0 14px; font-size: 1.05rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { color: #c8d7eb; background: rgba(88, 166, 255, .09); border: 1px solid rgba(88, 166, 255, .2); border-radius: 999px; padding: 5px 10px; font-size: .81rem; }
+    .experience-list { display: grid; gap: 15px; }
+    .experience-card { padding: 23px 25px; }
+    .experience-top { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
+    .experience-card h3 { margin: 0; font-size: 1.12rem; }
+    .role { color: var(--accent-2); font-weight: 650; margin-top: 2px; }
+    .date { white-space: nowrap; color: var(--muted); font-size: .88rem; }
+    .experience-card ul { color: var(--muted); margin: 13px 0 12px; padding-left: 19px; }
+    .experience-card li { margin: 5px 0; }
+    .tools { color: #c6d5e9; font-size: .86rem; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { min-height: 230px; padding: 25px; display: flex; flex-direction: column; }
+    .project-number { color: var(--accent); font-size: .8rem; font-weight: 800; letter-spacing: .13em; }
+    .project-card h3 { margin: 12px 0 8px; font-size: 1.25rem; }
+    .project-card p { color: var(--muted); margin: 0 0 18px; }
+    .project-card .tags { margin-top: auto; }
+    .project-note { color: var(--muted); font-size: .9rem; margin-top: 16px; }
+    .education-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+    .education-card { padding: 24px; }
+    .education-card h3 { margin: 0 0 5px; }
+    .education-card p { margin: 0; color: var(--muted); }
+    .cert-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 13px; }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px; background: linear-gradient(120deg, rgba(29, 76, 125, .45), rgba(17, 28, 46, .95)); border: 1px solid rgba(88, 166, 255, .28); border-radius: var(--radius); }
+    .contact-box h2 { margin: 0 0 8px; font-size: clamp(1.7rem, 4vw, 2.4rem); }
+    .contact-box p { margin: 0; color: var(--muted); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 850px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .education-grid { grid-template-columns: 1fr; }
     }
-    .section {
-      padding: 70px 0;
-    }
-    .card-text{
-      font-size: 12px;
-    }
-	.card-text-tech{
-	 font-size: 12px;
-	}
-    .badge-skill {
-      background-color: #e7f1ff;
-      color: #0d6efd;
-      margin: 5px;
-      padding: 10px 15px;
-      border-radius: 20px;
-      font-size: 0.9rem;
-    }
-
-    .project-card {
-      transition: transform 0.2s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-
-    footer {
-      background-color: #212529;
-      color: #adb5bd;
-      padding: 30px;
+    @media (max-width: 640px) {
+      .container { width: min(100% - 30px, var(--max)); }
+      .nav { min-height: 64px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; padding: 18px 22px 22px; flex-direction: column; align-items: flex-start; background: #0d1728; border-bottom: 1px solid var(--line); }
+      .nav-links.open { display: flex; }
+      .hero { padding: 78px 0 65px; }
+      section { padding: 58px 0; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .experience-top { display: block; }
+      .date { display: block; margin-top: 5px; }
+      .contact-box { display: block; }
+      .contact-links { margin-top: 20px; }
+      .stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home">NOEL<span>.</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+        <a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Noel David</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+  <main>
+    <section class="hero" id="home" style="border-top:0">
+      <div class="container">
+        <div class="eyebrow">Data Engineer · SQL & ETL/ELT Specialist</div>
+        <h1>Building reliable data pipelines.<br /><span>Turning data into insight.</span></h1>
+        <p class="hero-copy">
+          I'm <strong>Noel S. David</strong>, a Data Engineer and SQL Developer with 10+ years of experience
+          across data engineering, ETL development, data warehousing, and analytics. I build and support
+          dependable data solutions using SQL, Python, and enterprise data integration platforms.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">Explore My Work</a>
+          <a class="button secondary" href="mailto:noelsdavid@gmail.com">Contact Me</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/noelsdavid" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+        <div class="hero-meta">
+          <span>San Fernando, Pampanga, Philippines</span>
+          <span>10+ years in data & technology</span>
+          <span>Open to data engineering opportunities</span>
+        </div>
       </div>
-    </div>
-  </nav>
+    </section>
 
-  <!-- HERO -->
-  <section class="hero text-center">
-    <div class="container">
-      <h1>Noel David</h1>
-      <p class="lead mt-3">
-        Data Engineer / Data Analyst<br>
-        
-      </p>
-      <p>
-        Combining data engineering and analytics skills to design scalable pipelines, 
-        automate data workflows, and produce reliable, analytics-ready datasets that drive 
-        smarter business decisions.
-      </p>
-      <a href="#projects" class="btn btn-light btn-lg mt-4">View Projects</a>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="text-center mb-4">About Me</h2>
-      <p class="text-center">
-        I am a Data Engineer / Data Analyst with strong experience in SQL,Python
-        , ETL/ELT pipelines, and Data Modelling.
-        I focus on building reliable data models that power business decisions.
-      </p>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="section bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Tech Stack</h2>
-      <div class="text-center">
-        <span class="badge-skill">Python/PHP/VBA/SQL</span>
-        <span class="badge-skill">Snowflake/BigQuery/SQLServer</span>
-        <span class="badge-skill">SSIS/Informatica</span>
-        <span class="badge-skill">ETL/ELT/Data Warehousing</span>
-        <span class="badge-skill">Power BI/Tableau/Looker</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="text-center mb-5">Featured Projects</h2>
-
-      <div class="row g-4">
-
-        <!-- Project 1 -->
-        <div class="col-md-6">
-          <div class="card project-card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">Product Sales Dashboard</h5>
-              
-              <p class="card-text">
-                This interactive Power BI Sales Dashboard for 2022 provides a comprehensive overview of 
-                sales performance of Coca-Cola products across different regions and time periods. 
-                The project is inspired by this YouTube tutorial from Kenji Explains channel. 
-                I have made changes on colors and visuals' settings.
-              </p>
-             
-              <p class="card-text-tech"><b>Tech:</b> PowerBI, SQL, DAX</p>
-              <a href="https://github.com/davidnho/pbi_power_sales_dashboard.git"
-                class="btn btn-primary btn-sm" target="_blank">View GitHub</a>
-            </div>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Introduction</div>
+          <h2>About Me</h2>
+          <p>Experienced in traditional data platforms, with a continuing focus on modern cloud and analytics engineering practices.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <p>
+              My background spans data engineering, SQL development, ETL/ELT, data integration,
+              and business intelligence. I've worked with tools such as SSIS, Informatica BDM,
+              and Matillion to build and maintain data workflows, optimize SQL solutions, and
+              deliver dependable datasets for reporting and analytics.
+            </p>
+            <p>
+              I also use Python for data processing and automation and have experience supporting
+              production data systems, including SQL- and Kafka-based workflows. I am currently
+              strengthening my analytics engineering capabilities through hands-on dbt projects,
+              including modular SQL models, testing, documentation, lineage, and customer-history modelling.
+            </p>
+            <p>
+              I value maintainable solutions, clear technical documentation, data quality, and
+              continuous learning as data platforms evolve.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>10+</strong><span>Years of experience</span></div>
+            <div class="stat"><strong>SQL</strong><span>Core engineering strength</span></div>
+            <div class="stat"><strong>ETL</strong><span>Pipeline development</span></div>
+            <div class="stat"><strong>Python</strong><span>Data processing & automation</span></div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Project 2 -->
-        <div class="col-md-6">
-          <div class="card project-card h-100 shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">Financial Services Performance & Risk Analytics</h5>
-              <p class="card-text">
-                This notebook analyzes financial performance, customer risk, and transaction behavior for a 
-                financial services company. It mirrors Tableau / Power BI dashboards using Python, pandas, 
-                and visualization libraries, demonstrating end-to-end analytics skills.</p>
-               
-			   <p class="card-text">
-                Here's the Google Colab version: </br>
-				<a href="https://drive.google.com/file/d/1mjDFfSJ1l3XCazJFxICnTsxFPWMDtRRL/view?usp=sharing" target="_blank">
-                  Financial Services Performance & Risk Analytics (Google Colab)
-                </a>
-				</p>
-              </p>
-              <p class="card-text-tech"><b>Tech:</b> Notebook, Python,Pandas,Plotly, SQL</p>
-              <a href="https://www.kaggle.com/code/davidnho/financial-services-performance-risk-analytics" class="btn btn-primary btn-sm" target="_blank">View on Kaggle</a>
-            </div>
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Technical toolkit</div>
+          <h2>Skills & Technologies</h2>
+          <p>A practical mix of data engineering, database, cloud, analytics, and development tools.</p>
+        </div>
+        <div class="skills-grid">
+          <article class="skill-card"><h3>SQL & Programming</h3><div class="tags"><span class="tag">SQL / T-SQL</span><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">VBA</span></div></article>
+          <article class="skill-card"><h3>ETL / ELT & Orchestration</h3><div class="tags"><span class="tag">SSIS</span><span class="tag">Informatica BDM</span><span class="tag">Matillion</span><span class="tag">dbt Cloud</span><span class="tag">Apache Airflow</span></div></article>
+          <article class="skill-card"><h3>Data Warehousing & Modelling</h3><div class="tags"><span class="tag">Data Warehousing</span><span class="tag">Dimensional Modelling</span><span class="tag">Fact & Dimension Tables</span><span class="tag">SCD Type 2</span><span class="tag">Medallion Architecture</span></div></article>
+          <article class="skill-card"><h3>Cloud & Data Platforms</h3><div class="tags"><span class="tag">AWS S3</span><span class="tag">Google Cloud</span><span class="tag">BigQuery</span><span class="tag">Azure</span><span class="tag">Alibaba Cloud DataWorks</span></div></article>
+          <article class="skill-card"><h3>Databases & Big Data</h3><div class="tags"><span class="tag">SQL Server</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Snowflake</span><span class="tag">MongoDB</span><span class="tag">OceanBase</span><span class="tag">Hive</span><span class="tag">Spark</span></div></article>
+          <article class="skill-card"><h3>BI, Streaming & Tools</h3><div class="tags"><span class="tag">Power BI</span><span class="tag">SSRS</span><span class="tag">Tableau</span><span class="tag">Apache Kafka</span><span class="tag">Datadog</span><span class="tag">Git & GitHub</span><span class="tag">Jira</span><span class="tag">VS Code</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Career history</div>
+          <h2>Professional Experience</h2>
+          <p>Selected roles across data engineering, ETL development, SQL programming, and analytics.</p>
+        </div>
+        <div class="experience-list">
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Ascendion <span style="color:var(--muted);font-weight:400">· Client: GCash</span></h3><div class="role">Data Engineer</div></div><div class="date">May 2025 – Mar 2026</div></div>
+            <ul><li>Developed and supported automated data workflows and complex SQL queries across large datasets.</li><li>Identified workflow automation opportunities and supported reliable execution of scheduled pipelines.</li><li>Prepared technical requirements, data mappings, and workflow documentation.</li></ul>
+            <div class="tools">Tools: Alibaba Cloud DataWorks, Python, MySQL, OceanBase</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Security Bank Corporation</h3><div class="role">Real-Time Data Systems (RTDS) Engineer</div></div><div class="date">Jun 2024 – Nov 2024</div></div>
+            <ul><li>Supported real-time data pipelines and production data systems.</li><li>Troubleshot Kafka consumers and SQL-based workflows and monitored system health.</li></ul>
+            <div class="tools">Tools: MongoDB, SQL, Apache Kafka, Datadog, Jira</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Collabera <span style="color:var(--muted);font-weight:400">· Client: UnionBank of the Philippines</span></h3><div class="role">ETL Developer</div></div><div class="date">Oct 2022 – Aug 2023</div></div>
+            <ul><li>Designed and developed ETL workflows using Informatica BDM and Hive for enterprise data warehouse solutions.</li><li>Gathered business requirements, prepared data mappings, and streamlined ETL jobs.</li></ul>
+            <div class="tools">Tools: Informatica BDM, Hive, Spark, Hadoop, MySQL</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>ConnectOS</h3><div class="role">Data Engineer</div></div><div class="date">Apr 2022 – Aug 2022</div></div>
+            <ul><li>Designed data pipelines for reporting and analytics and developed Tableau and Excel dashboards.</li><li>Contributed to ERDs, technical workflows, and process documentation.</li></ul>
+            <div class="tools">Tools: Matillion ETL, Python, Snowflake, Tableau, dbt Cloud, Zoho CRM</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>TOA Global</h3><div class="role">Data Engineer</div></div><div class="date">Dec 2021 – Mar 2022</div></div>
+            <ul><li>Built and maintained SSIS and SQL Server ETL pipelines and resolved data-quality issues.</li><li>Maintained technical documentation for ETL jobs and workflows.</li></ul>
+            <div class="tools">Tools: SSIS, SQL Server, JavaScript, SSMS, Trello</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Cloudstaff</h3><div class="role">Software Engineer / Data Engineer</div></div><div class="date">Dec 2019 – Dec 2021</div></div>
+            <ul><li>Developed and optimized SQL Server stored procedures, views, and functions for BI reporting.</li><li>Automated ETL/ELT processes using SSIS and Python and applied query performance tuning.</li><li>Prepared optimized datasets and data models for Power BI and Tableau.</li></ul>
+            <div class="tools">Tools: SQL Server, SSRS, SSIS, BigQuery, Python, Tableau, Power BI, Excel</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Dnata Travel Inc.</h3><div class="role">Data Analyst</div></div><div class="date">Aug 2018 – Dec 2019</div></div>
+            <ul><li>Developed SSIS and Python ETL pipelines for data warehouse reporting.</li><li>Maintained SSRS reports, delivered ad-hoc reports and Power BI dashboards, and documented requirements.</li></ul>
+            <div class="tools">Tools: SQL Server, SSRS, SSIS, Python, Excel, Sisense, PostgreSQL, Salesforce</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Cloudstaff</h3><div class="role">Software Engineer</div></div><div class="date">Jun 2015 – Aug 2018</div></div>
+            <ul><li>Developed web application features and converted legacy desktop reports into responsive web interfaces.</li><li>Managed deployments and coordinated with QA and business analysts to resolve issues.</li></ul>
+            <div class="tools">Tools: CakePHP, jQuery, MySQL, Bootstrap, HTML5, REST APIs, RabbitMQ</div>
+          </article>
+          <article class="experience-card">
+            <div class="experience-top"><div><h3>Salmat Services</h3><div class="role">SQL Programmer</div></div><div class="date">Aug 2011 – Jun 2015</div></div>
+            <ul><li>Developed SQL Server stored procedures, T-SQL scripts, and SSIS packages for production data processing.</li><li>Created automated data extraction scripts and SSRS reports.</li></ul>
+            <div class="tools">Tools: SQL Server, SSRS, SSIS, T-SQL, Visual Basic</div>
+          </article>
+        </div>
+        <p class="project-note">Earlier career: Softsys Technology Management — Total Quality Engineer (2009–2011); NCO Group Philippines — Reports Analyst (2008–2009); Etelecare Global Solutions / AOL — Customer Care & Reports Analyst (2000–2008).</p>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects & Case Studies</h2>
+          <p>I'm preparing detailed project walkthroughs, architecture diagrams, code samples, and technical write-ups. Project details and repository links will be added here.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card"><div class="project-number">PROJECT 01</div><h3>Project Coming Soon</h3><p>A space for an end-to-end data engineering project, including the business problem, architecture, pipeline design, and results.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">ETL / ELT</span></div></article>
+          <article class="project-card"><div class="project-number">PROJECT 02</div><h3>Project Coming Soon</h3><p>A space for an analytics engineering or data warehousing case study, with transformation logic, data quality checks, and documentation.</p><div class="tags"><span class="tag">dbt</span><span class="tag">Data Modelling</span><span class="tag">Analytics</span></div></article>
+        </div>
+        <p class="project-note">These are placeholders, not published project claims. Replace each card with your actual project description and repository/demo links when ready.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading"><div class="eyebrow">Learning & development</div><h2>Education & Professional Development</h2></div>
+        <div class="education-grid">
+          <article class="education-card">
+            <h3>Bachelor of Science in Business Management</h3>
+            <p>University of the Philippines – Clarkfield, Pampanga · 1992–1996</p>
+          </article>
+          <article class="education-card">
+            <h3>Professional Development</h3>
+            <p>Selected training and guided learning</p>
+            <div class="cert-list"><span class="tag">Microsoft Fabric · DataCamp</span><span class="tag">Databricks · DataCamp / Coursera</span><span class="tag">Apache Spark · DataCamp / Coursera</span><span class="tag">Azure Data Factory · DataCamp</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div><div class="eyebrow">Get in touch</div><h2>Let's talk about data.</h2><p>For opportunities, collaboration, or technical discussions, feel free to reach out.</p></div>
+          <div class="contact-links">
+            <a class="button primary" href="mailto:noelsdavid@gmail.com">Email Me</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/noelsdavid" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="button secondary" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section bg-light">
-    <div class="container text-center">
-      <h2>Contact</h2>
-      <p class="mt-3">
-        📧 <a href= "mailto:noelsdavid@gmail.com">Send me email</a> <br>
-        🔗 <a href="https://www.linkedin.com/in/noelsdavid/" target="_blank">LinkedIn</a> |
-        💻 <a href="https://github.com/davidnho" target="_blank">GitHub</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="text-center">
-    © 2026 Noel David | Data Engineer
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Noel S. David. All rights reserved.</span><span>Designed for GitHub Pages · Built with HTML, CSS & JavaScript</span></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("navLinks");
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }));
+  </script>
 </body>
-
 </html>
