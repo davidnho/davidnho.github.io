@@ -24,3 +24,6 @@ All styling and JavaScript are included in `index.html`; no build tools, framewo
 
 
 The `assets/CleanDataPro.xlsm` file is the downloadable Excel VBA data-cleaning project linked from the portfolio page. Keep this file in the `assets` folder when publishing to GitHub Pages.
+
+
+The portfolio also features the Customer Analysis Dashboard on Tableau Public. The project card links to the published Tableau visualization and lists the relevant visualization and analytics skills.
