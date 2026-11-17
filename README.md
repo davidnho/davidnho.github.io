@@ -23,7 +23,6 @@ A responsive, static portfolio website built with HTML, CSS, and vanilla JavaScr
 All styling and JavaScript are included in `index.html`; no build tools, frameworks, or package installation are required.
 
 
-The `assets/CleanDataPro.xlsm` file is the downloadable Excel VBA data-cleaning project linked from the portfolio page. Keep this file in the `assets` folder when publishing to GitHub Pages.
 
 
 The portfolio also features the Customer Analysis Dashboard on Tableau Public. The project card links to the published Tableau visualization and lists the relevant visualization and analytics skills.
@@ -32,3 +31,8 @@ The portfolio also features the Customer Analysis Dashboard on Tableau Public. T
 ## Power BI project
 
 The portfolio includes the Coca-Cola Sales Dashboard — 2022 project card. Keep `assets/Coca_Cola_Sales_Dashboard_2022.pbix` in the `assets` folder so visitors can download the Power BI report. The card credits the Kenji Explains tutorial that inspired the project and notes that the colors and visual settings were customized.
+
+
+## Sales Analytics Excel Lab
+
+The portfolio includes a downloadable Excel workbook at `assets/Sales_Analytics_Excel_Lab.xlsm`. Keep this file in the `assets` folder when publishing to GitHub Pages.
