@@ -36,3 +36,8 @@ The portfolio includes the Coca-Cola Sales Dashboard — 2022 project card. Keep
 ## Sales Analytics Excel Lab
 
 The portfolio includes a downloadable Excel workbook at `assets/Sales_Analytics_Excel_Lab.xlsm`. Keep this file in the `assets` folder when publishing to GitHub Pages.
+
+
+## Theme switcher
+
+The portfolio includes a Dark / System / Light theme selector in the header. The selected preference is saved in the visitor's browser using local storage. System mode follows the device's color-scheme preference.
