@@ -41,3 +41,6 @@ The portfolio includes a downloadable Excel workbook at `assets/Sales_Analytics_
 ## Theme switcher
 
 The portfolio includes a Dark / System / Light theme selector in the header. The selected preference is saved in the visitor's browser using local storage. System mode follows the device's color-scheme preference.
+
+
+The theme selector is positioned on the right side of the navigation bar.
