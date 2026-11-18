@@ -95,7 +95,7 @@
     .nav-links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .92rem; margin-left: auto; }
     .nav-links a:hover { color: var(--text); }
 
-    .nav-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; justify-content: flex-end; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; margin-left: 24px; justify-content: flex-end; }
     .theme-picker {
       display: inline-flex; align-items: center; gap: 8px;
       color: var(--muted); font-size: .86rem; white-space: nowrap;
@@ -195,6 +195,10 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="#home">NOEL<span>.</span></a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+        <a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </nav>
       <div class="nav-actions">
         <label class="theme-picker" for="themeSelect"><span>Theme</span>
           <select id="themeSelect" aria-label="Choose color theme">
@@ -205,10 +209,6 @@
         </label>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
       </div>
-      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
-        <a href="#projects">Projects</a><a href="#contact">Contact</a>
-      </nav>
     </div>
   </header>
 
